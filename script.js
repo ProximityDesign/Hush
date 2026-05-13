@@ -91,10 +91,12 @@ const themeToggle = document.getElementById('theme-toggle');
 const htmlEl = document.documentElement;
 
 const savedTheme = localStorage.getItem('theme');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
+// Default to light mode unless dark mode is explicitly saved
+if (savedTheme !== 'dark') {
   htmlEl.classList.add('light-mode');
+} else {
+  htmlEl.classList.remove('light-mode');
 }
 
 if (themeToggle) {
