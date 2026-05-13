@@ -161,15 +161,20 @@ revealElements.forEach((el) => {
   gsap.to(el, {
     scrollTrigger: {
       trigger: el,
-      start: "top 85%",
+      start: "top 95%",
       end: "bottom 20%",
       toggleActions: "play none none reverse"
     },
     y: 0,
     opacity: 1,
-    duration: 1.2,
-    ease: "power3.out"
+    duration: 0.8,
+    ease: "power2.out"
   });
+});
+
+// Refresh ScrollTrigger on load to recalculate exact positions
+window.addEventListener('load', () => {
+  ScrollTrigger.refresh();
 });
 
 // Parallax for phone in hero
